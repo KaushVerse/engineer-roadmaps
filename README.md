@@ -83,10 +83,6 @@ A curated collection of **step-by-step roadmaps** for:
 
 ---
 
-## 🖼️ Roadmaps – Visual Overview
-
-![Kafka Roadmap](assets/images/kafka-top(5).gif)
-
 ## 🤝 Contribute
 PRs are welcome 🙌  
 If you have ideas for new roadmaps, improvements, or examples — feel free to contribute.
