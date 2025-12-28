@@ -43,7 +43,7 @@ queue systems, and event-driven architectures** used in
 
 ### ☁️ Cloud Messaging Services
 - ☁️ [AWS SQS & SNS](sqs/README.md)
-- 🌐 [Google Pub/Sub](pubsub/README.md)
+- 🌐  [Google Pub/Sub](pubsub/README.md)
 - 🧵 [AWS EventBridge](eventbridge/README.md)
 
 ---

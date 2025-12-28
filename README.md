@@ -22,12 +22,13 @@ A curated collection of **step-by-step roadmaps** for:
 - 🛡️ [Trivy Roadmap](devops/trivy/README.md)
 - 🧪 [SonarQube Roadmap](devops/sonarqube/README.md)
 - 🐳 [Docker Roadmap](devops/docker/README.md)
-- 🌐  [NGINX Roadmap](devops/nginx/README.md)
+- 🌐 [NGINX Roadmap](devops/nginx/README.md)
 - ⚙️ [Ansible Roadmap](devops/ansible/README.md)
 - 🧱 [Jenkins Roadmap](devops/jenkins/README.md)
 - 🐙 [GitHub Roadmap](devops/git/README.md)
 - 🐧 [Linux Roadmap](devops/linux/README.md)
 - 🧭 [DevOps Roadmap](devops/devops/README.md)
+
 ---
 
 ### 📡 Messaging & Streaming
@@ -37,8 +38,25 @@ A curated collection of **step-by-step roadmaps** for:
 - 🚀 [NATS Roadmap](messaging-streaming/nats/README.md)
 - 🌊 [Apache Pulsar Roadmap](messaging-streaming/pulsar/README.md)
 - ☁️ [AWS SQS & SNS](messaging-streaming/sqs/README.md)
-- 🌐  [Google Pub/Sub](messaging-streaming/pubsub/README.md)
+- 🌐 [Google Pub/Sub](messaging-streaming/pubsub/README.md)
 - 🧵 [Event-Driven Architecture](messaging-streaming/README.md)
+
+---
+
+### 💻 Programming Languages
+- 🐍 [Python Roadmap](programming-languages/python/README.md)
+- 🐹 [Go (Golang) Roadmap](programming-languages/go/README.md)
+- ☕ [Java Roadmap](programming-languages/java/README.md)
+- 🟨 [JavaScript Roadmap](programming-languages/javascript/README.md)
+- 🔷 [TypeScript Roadmap](programming-languages/typescript/README.md)
+- 🦀 [Rust Roadmap](programming-languages/rust/README.md)
+- 🔵 [C Roadmap](programming-languages/c/README.md)
+- 🟣 [C++ Roadmap](programming-languages/cpp/README.md)
+- 🧊 [C# Roadmap](programming-languages/csharp/README.md)
+- 🐘 [PHP Roadmap](programming-languages/php/README.md)
+- 💎 [Ruby Roadmap](programming-languages/ruby/README.md)
+- 🧠 [Kotlin Roadmap](programming-languages/kotlin/README.md)
+- 🍎 [Swift Roadmap](programming-languages/swift/README.md)
 
 ---
 
