@@ -34,17 +34,13 @@ queue systems, and event-driven architectures** used in
 
 ### 🐇 Message Brokers
 - 🐇 [RabbitMQ Roadmap](rabbitmq/README.md)
-- 🚀 [NATS Roadmap](nats/README.md)
 - ⚡ [Redis Streams Roadmap](redis/README.md)
 
 ### 🐘 Event Streaming Platforms
 - 🐘 [Apache Kafka Roadmap](kafka/README.md)
-- 🌊 [Apache Pulsar Roadmap](pulsar/README.md)
 
 ### ☁️ Cloud Messaging Services
-- ☁️ [AWS SQS & SNS](sqs/README.md)
 - 🌐  [Google Pub/Sub](pubsub/README.md)
-- 🧵 [AWS EventBridge](eventbridge/README.md)
 
 ---
 
