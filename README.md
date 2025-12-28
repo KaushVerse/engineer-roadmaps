@@ -12,7 +12,10 @@ A curated collection of **step-by-step roadmaps** for:
 
 ## 📌 Roadmaps
 
-### 🚀 DevOps
+## 🚀 DevOps
+
+
+
 - 🧩 [Terraform Roadmap](devops/terraform/README.md)
 - ☸️ [Kubernetes Roadmap](devops/kubernetes/README.md)
 - 🔁 [CI/CD Roadmap](devops/cicd/README.md)
@@ -31,7 +34,9 @@ A curated collection of **step-by-step roadmaps** for:
 
 ---
 
-### 📡 Messaging & Streaming
+## 📡 Messaging & Streaming
+
+
 - 🐇 [RabbitMQ Roadmap](messaging-streaming/rabbitmq/README.md)
 - 🐘 [Apache Kafka Roadmap](messaging-streaming/kafka/README.md)
 - ⚡ [Redis Streams Roadmap](messaging-streaming/redis/README.md)
@@ -43,7 +48,9 @@ A curated collection of **step-by-step roadmaps** for:
 
 ---
 
-### 💻 Programming Languages
+## 💻 Programming Languages
+
+
 - 🐍 [Python Roadmap](programming-languages/python/README.md)
 - 🐹 [Go (Golang) Roadmap](programming-languages/go/README.md)
 - ☕ [Java Roadmap](programming-languages/java/README.md)
@@ -60,15 +67,28 @@ A curated collection of **step-by-step roadmaps** for:
 
 ---
 
-### ☁️ Cloud
+## ☁️ Cloud
+
+![Cloud Roadmap](assets/images/cloud.png)
+
 - ☁️ [AWS Roadmap](cloud/aws.md)
 
 ---
 
-### 🤖 AI / ML
+## 🤖 AI / ML
+
+![AI Roadmap](assets/images/ai-roadmap.gif)
+
 - 🤖 [AI From Scratch Roadmap](ai-ml/ai-from-scratch.md)
 
 ---
+
+## 🖼️ Roadmaps – Visual Overview
+
+### 🐘 Kafka top 5 Diagrams
+<p align="center">
+  <img src="assets/images/kafka-top(5).gif" width="80%" />
+</p>
 
 ## 🤝 Contribute
 PRs are welcome 🙌  
