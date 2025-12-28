@@ -85,10 +85,7 @@ A curated collection of **step-by-step roadmaps** for:
 
 ## 🖼️ Roadmaps – Visual Overview
 
-### 🐘 Kafka top 5 Diagrams
-<p align="center">
-  <img src="assets/images/kafka-top(5).gif" width="80%" />
-</p>
+![Kafka Roadmap](assets/images/kafka-top(5).gif)
 
 ## 🤝 Contribute
 PRs are welcome 🙌  
