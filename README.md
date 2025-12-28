@@ -14,8 +14,6 @@ A curated collection of **step-by-step roadmaps** for:
 
 ## 🚀 DevOps
 
-
-
 - 🧩 [Terraform Roadmap](devops/terraform/README.md)
 - ☸️ [Kubernetes Roadmap](devops/kubernetes/README.md)
 - 🔁 [CI/CD Roadmap](devops/cicd/README.md)
@@ -36,7 +34,6 @@ A curated collection of **step-by-step roadmaps** for:
 
 ## 📡 Messaging & Streaming
 
-
 - 🐇 [RabbitMQ Roadmap](messaging-streaming/rabbitmq/README.md)
 - 🐘 [Apache Kafka Roadmap](messaging-streaming/kafka/README.md)
 - ⚡ [Redis Streams Roadmap](messaging-streaming/redis/README.md)
@@ -50,7 +47,6 @@ A curated collection of **step-by-step roadmaps** for:
 
 ## 💻 Programming Languages
 
-
 - 🐍 [Python Roadmap](programming-languages/python/README.md)
 - 🐹 [Go (Golang) Roadmap](programming-languages/go/README.md)
 - ☕ [Java Roadmap](programming-languages/java/README.md)
@@ -60,16 +56,34 @@ A curated collection of **step-by-step roadmaps** for:
 - 🔵 [C Roadmap](programming-languages/c/README.md)
 - 🟣 [C++ Roadmap](programming-languages/cpp/README.md)
 - 🧊 [C# Roadmap](programming-languages/csharp/README.md)
-- 🐘 [PHP Roadmap](programming-languages/php/README.md)
 - 💎 [Ruby Roadmap](programming-languages/ruby/README.md)
 - 🧠 [Kotlin Roadmap](programming-languages/kotlin/README.md)
 - 🍎 [Swift Roadmap](programming-languages/swift/README.md)
 
 ---
 
-## ☁️ Cloud
+## 💻 Development
 
-![Cloud Roadmap](assets/images/cloud.png)
+- 🎮 [Game Dev with C++](development/game-dev-cpp/README.md)
+- 🏗️ [Backend Engineer](development/backend/README.md)
+---
+
+## 🧠 System Design
+
+- 🧠 [System Design Master Roadmap](system-design/README.md)
+- 🧩 [System Design Fundamentals](system-design/fundamentals/README.md)
+- 🗄️ [Database Design](system-design/databases/README.md)
+- ⚡ [Caching & Performance](system-design/caching/README.md)
+- 📡 [Messaging & Async Systems](system-design/messaging/README.md)
+- 🌐  [Distributed Systems](system-design/distributed-systems/README.md)
+- 🔐 [Scalability & Load Balancing](system-design/scaling/README.md)
+- 🔐 [Security Architecture](system-design/security/README.md)
+- ☁️ [Cloud-Native System Design](system-design/cloud/README.md)
+- 🎯 [System Design Interview Problems](system-design/interview-designs/README.md)
+- ☸️ [Kubernetes Internals](system-design/kubernetes-internals/README.md)
+---
+
+## ☁️ Cloud
 
 - ☁️ [AWS Roadmap](cloud/aws.md)
 
@@ -77,12 +91,11 @@ A curated collection of **step-by-step roadmaps** for:
 
 ## 🤖 AI / ML
 
-![AI Roadmap](assets/images/ai-roadmap.gif)
-
 - 🤖 [AI From Scratch Roadmap](ai-ml/ai-from-scratch.md)
 
 ---
 
 ## 🤝 Contribute
+
 PRs are welcome 🙌  
-If you have ideas for new roadmaps, improvements, or examples — feel free to contribute.
+If you have ideas for new roadmaps, improvements, or real-world examples — feel free to contribute.
