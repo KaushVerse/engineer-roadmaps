@@ -38,9 +38,7 @@ A curated collection of **step-by-step roadmaps** for:
 - 🐘 [Apache Kafka Roadmap](messaging-streaming/kafka/README.md)
 - ⚡ [Redis Streams Roadmap](messaging-streaming/redis/README.md)
 - 🚀 [NATS Roadmap](messaging-streaming/nats/README.md)
-- 🌊 [Apache Pulsar Roadmap](messaging-streaming/pulsar/README.md)
-- ☁️ [AWS SQS & SNS](messaging-streaming/sqs/README.md)
-- 🌐 [Google Pub/Sub](messaging-streaming/pubsub/README.md)
+- 🌐  [Google Pub/Sub](messaging-streaming/pubsub/README.md)
 - 🧵 [Event-Driven Architecture](messaging-streaming/event-driven-architecture/README.md)
 
 ---
