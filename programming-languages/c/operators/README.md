@@ -87,7 +87,7 @@ if(age >= 18) printf("Eligible");
 | Operator | Meaning | Real Life      |    |            |
 | -------- | ------- | -------------- | -- | ---------- |
 | `&&`     | AND     | ATM card + PIN |    |            |
-| `        |         | `              | OR | Cash / UPI |
+| `|`        |         | `|`               | OR | Cash / UPI |
 | `!`      | NOT     | Not blocked    |    |            |
 
 ```c
