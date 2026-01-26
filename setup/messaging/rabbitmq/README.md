@@ -125,3 +125,77 @@ sudo rabbitmqctl add_vhost myvhost
 ```bash
 sudo rabbitmqctl list_vhosts
 ```
+
+# 👤 Step 2: Users create karo
+
+#### 🔹 App User (service / microservices ke liye)
+
+```bash
+sudo rabbitmqctl add_user app_user AppUser@456
+```
+
+#### 🔹 Admin User (dashboard + full control)
+
+```bash 
+sudo rabbitmqctl add_user admin_user Admin@123
+```
+
+#### Verify Users:
+
+```bash
+sudo rabbitmqctl list_users
+```
+
+# 🏷️ Step 3: User Tags set karo
+
+#### 🔸 app_user → normal app user
+
+##### (no admin power)
+
+```bash
+sudo rabbitmqctl set_user_tags app_user
+```
+
+#### 🔸 admin_user → administrator
+
+##### (full dashboard + control)
+
+```bash
+sudo rabbitmqctl set_user_tags admin_user administrator
+```
+
+#### Check:
+
+```bash
+sudo rabbitmqctl list_users
+```
+
+# 🔐 Step 4: Permissions set karo (MOST IMPORTANT 🔥)
+
+## ✅ app_user permissions (ONLY myvhost)
+
+```bash
+sudo rabbitmqctl set_permissions -p myvhost app_user ".*" ".*" ".*"
+```
+
+#### Meaning:
+
+- configure → `.*`
+- write → `.*`
+- read → `.*`
+
+## ❌ app_user ko `/` se hata do (security best practice)
+
+```bash
+sudo rabbitmqctl clear_permissions -p / app_user
+```
+
+## **✅ admin_user permissions (ALL vhosts)**
+
+```bash
+sudo rabbitmqctl set_permissions -p myvhost admin_user ".*" ".*" ".*"
+```
+
+```bash
+sudo rabbitmqctl set_permissions -p / admin_user ".*" ".*" ".*"
+```
