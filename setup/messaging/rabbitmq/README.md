@@ -90,4 +90,26 @@ ssl_options.keyfile    = /etc/rabbitmq/ssl/server.key
 
 ssl_options.verify = verify_peer
 ssl_options.fail_if_no_peer_cert = false
+
+## Management UI (HTTP)
+
+management.tcp.port = 15672
+management.tcp.ip   = 0.0.0.0
+
+loopback_users.guest = false
 ```
+
+## 8️⃣ Restart RabbitMQ
+
+```bash
+sudo systemctl restart rabbitmq-server
+```
+
+## 9️⃣ Verify Listeners ✅
+
+```bash
+sudo rabbitmq-diagnostics listeners
+```
+
+#### Expected Output:
+##### Interface: [::], port: 5671, protocol: amqp/ssl
