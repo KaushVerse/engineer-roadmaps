@@ -33,3 +33,14 @@ sudo openssl genrsa -out server.key 4096
 sudo openssl req -new -key server.key -out server.csr \
 -subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=RabbitMQ/CN=[rmq.kaushverse.com](http://rmq.kaushverse.com/)"
 ```
+
+## 4️⃣ SAN (Very Important 🔥)
+
+```bash
+sudo nano san.ext
+```
+#### paste:
+
+```bash
+subjectAltName = DNS:rmq.kaushverse.com,DNS:localhost,IP:127.0.0.1
+```
