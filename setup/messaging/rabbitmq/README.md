@@ -44,3 +44,17 @@ sudo nano san.ext
 ```bash
 subjectAltName = DNS:rmq.kaushverse.com,DNS:localhost,IP:127.0.0.1
 ```
+
+## 5️⃣ Server Certificate Sign Karo (CA se)
+
+```bash
+sudo openssl x509 -req \
+-in server.csr \
+-CA ca.pem \
+-CAkey ca.key \
+-CAcreateserial \
+-out server.pem \
+-days 365 \
+-sha256 \
+-extfile san.ext
+```
