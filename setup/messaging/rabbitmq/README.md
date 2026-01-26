@@ -31,7 +31,7 @@ sudo openssl genrsa -out server.key 4096
 ```
 ```bash
 sudo openssl req -new -key server.key -out server.csr \
--subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=RabbitMQ/CN=[rmq.kaushverse.com](http://rmq.kaushverse.com/)"
+-subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=RabbitMQ/CN=[<DOMAIN>](http://<DOMAIN>/)"
 ```
 
 ## 4️⃣ SAN (Very Important 🔥)
@@ -42,7 +42,7 @@ sudo nano san.ext
 #### paste:
 
 ```bash
-subjectAltName = DNS:rmq.kaushverse.com,DNS:localhost,IP:127.0.0.1
+subjectAltName = DNS:<DOMAIN>,DNS:localhost,IP:127.0.0.1
 ```
 
 ## 5️⃣ Server Certificate Sign Karo (CA se)
