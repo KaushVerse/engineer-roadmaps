@@ -148,17 +148,13 @@ sudo rabbitmqctl list_users
 
 # 🏷️ Step 3: User Tags set karo
 
-#### 🔸 app_user → normal app user
-
-##### (no admin power)
+#### 🔸 app_user → normal app user (no admin power)
 
 ```bash
 sudo rabbitmqctl set_user_tags app_user
 ```
 
-#### 🔸 admin_user → administrator
-
-##### (full dashboard + control)
+#### 🔸 admin_user → administrator (full dashboard + control)
 
 ```bash
 sudo rabbitmqctl set_user_tags admin_user administrator
