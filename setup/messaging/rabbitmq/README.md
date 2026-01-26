@@ -11,3 +11,5 @@ Create a dedicated SSL directory:
 
 ```bash
 sudo mkdir -p /etc/rabbitmq/ssl
+
+cd /etc/rabbitmq/ssl
