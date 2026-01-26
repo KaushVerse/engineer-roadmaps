@@ -58,3 +58,18 @@ sudo openssl x509 -req \
 -sha256 \
 -extfile san.ext
 ```
+
+## 6️⃣ Permission Fix (Important ❗)
+
+```bash
+sudo chown -R rabbitmq:rabbitmq /etc/rabbitmq/ssl
+```
+```bash
+sudo chmod 600 /etc/rabbitmq/ssl/server.key
+```
+
+## 7️⃣ rabbitmq.conf Edit Karo (nano path)
+
+```bash
+sudo nano /etc/rabbitmq/rabbitmq.conf
+```
