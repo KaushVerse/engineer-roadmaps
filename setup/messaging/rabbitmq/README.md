@@ -23,3 +23,13 @@ sudo openssl req -x509 -new -nodes -key ca.key \
 -sha256 -days 3650 -out ca.pem \
 -subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=DevOps/CN=KaushVerse-CA"
 ```
+
+## 3️⃣ Server Key & CSR Banao
+
+```bash
+sudo openssl genrsa -out server.key 4096
+```
+```bash
+sudo openssl req -new -key server.key -out server.csr \
+-subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=RabbitMQ/CN=[rmq.kaushverse.com](http://rmq.kaushverse.com/)"
+```
