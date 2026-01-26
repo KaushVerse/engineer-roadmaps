@@ -242,29 +242,32 @@ configure write read
 
 ```bash
 rabbitmqctl set_permissions -p myvhost app_user ".*" ".*" ".*"
-Order is MANDATORY:
+```
+
+### 🔐 Permission Order (MANDATORY)
+
+RabbitMQ permissions **hamesha isi order me hoti hain**:
 
 configure → write → read
-🛡️ Production Best Practices
-❌ Never give app users access to /
 
-✅ One app = one user = one vhost
 
-🔍 Audit permissions regularly
+- **configure** → exchanges / queues create, delete, bind
+- **write** → messages publish
+- **read** → messages consume
 
-🔐 Use TLS + strong auth
-
-➡️ Next Step:
-Fine-grained regex permissions (queue-level access)
-
+⚠️ Order galat hua to permissions galat behave karegi.
 
 ---
 
-Agar tu bole to next bana deta hoon:
+## 🛡️ Production Best Practices
 
-- 🎯 **Regex-based permission examples**
-- 🔐 **Read-only / Write-only users**
-- 📘 **Real-world permission patterns**
-- 🧪 **Common mistakes & debugging**
+❌ **Never give app users access to `/` (default vhost)**  
+Default vhost sirf admin/testing ke liye hota hai.
 
-Bas bol bhai 🔥
+✅ **One app = one user = one vhost**  
+Isse blast radius kam hota hai aur isolation proper rehta hai.
+
+🔍 **Audit permissions regularly**
+```bash
+rabbitmqctl list_permissions
+rabbitmqctl list_user_permissions app_user
