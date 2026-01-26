@@ -207,3 +207,64 @@ sudo rabbitmqctl list_permissions -p myvhost
 ```bash
 sudo rabbitmqctl delete_user guest
 ```
+
+
+## 📊 Master Permissions Table — `"."* ".*" ".*"`
+
+RabbitMQ permissions are defined using **regular expressions** in the following order:
+
+configure write read
+
+
+---
+
+### 🔑 Permission Breakdown
+
+| Position | Regex | Icon | Permission Type | Meaning |
+|---------|------|------|-----------------|---------|
+| 1️⃣ | `".*"` | ⚙️ | Configure | User exchanges, queues, bindings **create / update / delete** kar sakta hai |
+| 2️⃣ | `".*"` | ✍️ | Write | User **messages publish** kar sakta hai |
+| 3️⃣ | `".*"` | 👀 | Read | User **queues se messages consume** kar sakta hai |
+
+---
+
+### 🧠 Regex Explanation
+
+- `.*` → **Everything allowed**
+- Production me:
+  - **App users** → limited vhost
+  - **Admin users** → all vhosts
+- Regex can be restricted if needed (advanced security)
+
+---
+
+### 🔐 Example Permission Command
+
+```bash
+rabbitmqctl set_permissions -p myvhost app_user ".*" ".*" ".*"
+Order is MANDATORY:
+
+configure → write → read
+🛡️ Production Best Practices
+❌ Never give app users access to /
+
+✅ One app = one user = one vhost
+
+🔍 Audit permissions regularly
+
+🔐 Use TLS + strong auth
+
+➡️ Next Step:
+Fine-grained regex permissions (queue-level access)
+
+
+---
+
+Agar tu bole to next bana deta hoon:
+
+- 🎯 **Regex-based permission examples**
+- 🔐 **Read-only / Write-only users**
+- 📘 **Real-world permission patterns**
+- 🧪 **Common mistakes & debugging**
+
+Bas bol bhai 🔥
