@@ -73,3 +73,21 @@ sudo chmod 600 /etc/rabbitmq/ssl/server.key
 ```bash
 sudo nano /etc/rabbitmq/rabbitmq.conf
 ```
+
+## 🔐 AMQPS Enable (5671)
+### Disable plain AMQP (optional but recommended)
+
+```bash
+listeners.tcp = none
+
+## Enable SSL listener
+
+listeners.ssl.default = 5671
+
+ssl_options.cacertfile = /etc/rabbitmq/ssl/ca.pem
+ssl_options.certfile   = /etc/rabbitmq/ssl/server.pem
+ssl_options.keyfile    = /etc/rabbitmq/ssl/server.key
+
+ssl_options.verify = verify_peer
+ssl_options.fail_if_no_peer_cert = false
+```
