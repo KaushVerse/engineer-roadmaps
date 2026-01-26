@@ -200,7 +200,7 @@ sudo rabbitmqctl set_permissions -p myvhost admin_user ".*" ".*" ".*"
 sudo rabbitmqctl set_permissions -p / admin_user ".*" ".*" ".*"
 ```
 
-# 🧪 Step 5: Verify permissions**
+# 🧪 Step 5: Verify permissions
 
 ```bash
 sudo rabbitmqctl list_permissions -p myvhost
