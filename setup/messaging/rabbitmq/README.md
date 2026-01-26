@@ -199,3 +199,15 @@ sudo rabbitmqctl set_permissions -p myvhost admin_user ".*" ".*" ".*"
 ```bash
 sudo rabbitmqctl set_permissions -p / admin_user ".*" ".*" ".*"
 ```
+
+# 🧪 Step 5: Verify permissions**
+
+```bash
+sudo rabbitmqctl list_permissions -p myvhost
+```
+
+#### 🧨 Security Checklist (important)
+
+```bash
+sudo rabbitmqctl delete_user guest
+```
