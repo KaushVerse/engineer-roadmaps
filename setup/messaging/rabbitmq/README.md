@@ -113,3 +113,15 @@ sudo rabbitmq-diagnostics listeners
 
 #### Expected Output:
 ##### Interface: [::], port: 5671, protocol: amqp/ssl
+
+
+# 🏠 Step 1: VHost create karo (myvhost)
+
+```bash
+sudo rabbitmqctl add_vhost myvhost
+```
+#### Verify:
+
+```bash
+sudo rabbitmqctl list_vhosts
+```
