@@ -8,44 +8,53 @@ This document describes how to prepare the SSL directory structure for a **produ
 
 ```bash
 sudo mkdir -p /etc/rabbitmq/ssl
-```
-
-```bash
 cd /etc/rabbitmq/ssl
 ```
-## 2️⃣ CA Certificate Generate Karo (Root CA)
+
+---
+
+## 2️⃣ Generate CA Certificate (Root CA)
 
 ```bash
 sudo openssl genrsa -out ca.key 4096
 ```
+
 ```bash
 sudo openssl req -x509 -new -nodes -key ca.key \
 -sha256 -days 3650 -out ca.pem \
 -subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=DevOps/CN=KaushVerse-CA"
 ```
 
-## 3️⃣ Server Key & CSR Banao
+---
+
+## 3️⃣ Create Server Key & CSR
 
 ```bash
 sudo openssl genrsa -out server.key 4096
 ```
+
 ```bash
 sudo openssl req -new -key server.key -out server.csr \
--subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=RabbitMQ/CN=[<DOMAIN>](http://<DOMAIN>/)"
+-subj "/C=IN/ST=MH/L=Pune/O=KaushVerse/OU=RabbitMQ/CN=<DOMAIN>"
 ```
 
-## 4️⃣ SAN (Very Important 🔥)
+---
+
+## 4️⃣ SAN Configuration (Very Important 🔥)
 
 ```bash
 sudo nano san.ext
 ```
-#### paste:
+
+Paste:
 
 ```bash
 subjectAltName = DNS:<DOMAIN>,DNS:localhost,IP:127.0.0.1
 ```
 
-## 5️⃣ Server Certificate Sign Karo (CA se)
+---
+
+## 5️⃣ Sign Server Certificate with CA
 
 ```bash
 sudo openssl x509 -req \
@@ -59,28 +68,25 @@ sudo openssl x509 -req \
 -extfile san.ext
 ```
 
-## 6️⃣ Permission Fix (Important ❗)
+---
+
+## 6️⃣ Fix Permissions ❗
 
 ```bash
 sudo chown -R rabbitmq:rabbitmq /etc/rabbitmq/ssl
-```
-```bash
 sudo chmod 600 /etc/rabbitmq/ssl/server.key
 ```
 
-## 7️⃣ rabbitmq.conf Edit Karo (nano path)
+---
+
+## 7️⃣ RabbitMQ Configuration
 
 ```bash
 sudo nano /etc/rabbitmq/rabbitmq.conf
 ```
 
-## 🔐 AMQPS Enable (5671)
-### Disable plain AMQP (optional but recommended)
-
-```bash
+```conf
 listeners.tcp = none
-
-## Enable SSL listener
 
 listeners.ssl.default = 5671
 
@@ -91,13 +97,13 @@ ssl_options.keyfile    = /etc/rabbitmq/ssl/server.key
 ssl_options.verify = verify_peer
 ssl_options.fail_if_no_peer_cert = false
 
-## Management UI (HTTP)
-
 management.tcp.port = 15672
 management.tcp.ip   = 0.0.0.0
 
 loopback_users.guest = false
 ```
+
+---
 
 ## 8️⃣ Restart RabbitMQ
 
@@ -105,169 +111,120 @@ loopback_users.guest = false
 sudo systemctl restart rabbitmq-server
 ```
 
-## 9️⃣ Verify Listeners ✅
+---
+
+## 9️⃣ Verify SSL Listener
 
 ```bash
 sudo rabbitmq-diagnostics listeners
 ```
 
-#### Expected Output:
-##### Interface: [::], port: 5671, protocol: amqp/ssl
+Expected:
 
+```
+Interface: [::], port: 5671, protocol: amqp/ssl
+```
 
-# 🏠 Step 1: VHost create karo (myvhost)
+---
+
+# 🏠 VHost Setup
 
 ```bash
 sudo rabbitmqctl add_vhost myvhost
-```
-#### Verify:
-
-```bash
 sudo rabbitmqctl list_vhosts
 ```
 
-# 👤 Step 2: Users create karo
+---
 
-#### 🔹 App User (service / microservices ke liye)
+# 👤 User Setup
+
+### App User
 
 ```bash
 sudo rabbitmqctl add_user app_user AppUser@456
 ```
 
-#### 🔹 Admin User (dashboard + full control)
+### Admin User
 
-```bash 
+```bash
 sudo rabbitmqctl add_user admin_user Admin@123
 ```
 
-#### Verify Users:
-
 ```bash
 sudo rabbitmqctl list_users
 ```
 
-# 🏷️ Step 3: User Tags set karo
+---
 
-#### 🔸 app_user → normal app user (no admin power)
+## 🏷️ User Tags
 
 ```bash
 sudo rabbitmqctl set_user_tags app_user
-```
-
-#### 🔸 admin_user → administrator (full dashboard + control)
-
-```bash
 sudo rabbitmqctl set_user_tags admin_user administrator
 ```
 
-#### Check:
+---
 
-```bash
-sudo rabbitmqctl list_users
-```
+## 🔐 Permissions (MOST IMPORTANT 🔥)
 
-# 🔐 Step 4: Permissions set karo (MOST IMPORTANT 🔥)
-
-## ✅ app_user permissions (ONLY myvhost)
+### App User (myvhost only)
 
 ```bash
 sudo rabbitmqctl set_permissions -p myvhost app_user ".*" ".*" ".*"
 ```
 
-#### Meaning:
-
-- configure → `.*`
-- write → `.*`
-- read → `.*`
-
-## ❌ app_user ko `/` se hata do (security best practice)
+Remove default vhost access:
 
 ```bash
 sudo rabbitmqctl clear_permissions -p / app_user
 ```
 
-## **✅ admin_user permissions (ALL vhosts)**
+### Admin User (all vhosts)
 
 ```bash
 sudo rabbitmqctl set_permissions -p myvhost admin_user ".*" ".*" ".*"
-```
-
-```bash
 sudo rabbitmqctl set_permissions -p / admin_user ".*" ".*" ".*"
 ```
 
-# 🧪 Step 5: Verify permissions
+---
+
+## 🧪 Verify Permissions
 
 ```bash
 sudo rabbitmqctl list_permissions -p myvhost
 ```
 
-#### 🧨 Security Checklist (important)
+---
+
+## 🧨 Security Checklist
 
 ```bash
 sudo rabbitmqctl delete_user guest
 ```
 
-
-## 📊 Master Permissions Table — `"."* ".*" ".*"`
-
-RabbitMQ permissions are defined using **regular expressions** in the following order:
-
-configure write read
-
-
 ---
 
-### 🔑 Permission Breakdown
+## 📊 Permission Order (MANDATORY)
 
-| Position | Regex | Icon | Permission Type | Meaning |
-|---------|------|------|-----------------|---------|
-| 1️⃣ | `".*"` | ⚙️ | Configure | User exchanges, queues, bindings **create / update / delete** kar sakta hai |
-| 2️⃣ | `".*"` | ✍️ | Write | User **messages publish** kar sakta hai |
-| 3️⃣ | `".*"` | 👀 | Read | User **queues se messages consume** kar sakta hai |
-
----
-
-### 🧠 Regex Explanation
-
-- `.*` → **Everything allowed**
-- Production me:
-  - **App users** → limited vhost
-  - **Admin users** → all vhosts
-- Regex can be restricted if needed (advanced security)
-
----
-
-### 🔐 Example Permission Command
-
-```bash
-rabbitmqctl set_permissions -p myvhost app_user ".*" ".*" ".*"
+```
+configure → write → read
 ```
 
-### 🔐 Permission Order (MANDATORY)
-
-RabbitMQ permissions **hamesha isi order me hoti hain**:
-
-configure → write → read
-
-
-- **configure** → exchanges / queues create, delete, bind
-- **write** → messages publish
-- **read** → messages consume
-
-⚠️ Order galat hua to permissions galat behave karegi.
+| Type      | Meaning                        |
+| --------- | ------------------------------ |
+| configure | queues/exchanges create/delete |
+| write     | publish messages               |
+| read      | consume messages               |
 
 ---
 
 ## 🛡️ Production Best Practices
 
-❌ **Never give app users access to `/` (default vhost)**  
-Default vhost sirf admin/testing ke liye hota hai.
+* ❌ Never use `/` vhost for apps
+* ✅ One app = one vhost = one user
+* 🔍 Audit regularly
 
-✅ **One app = one user = one vhost**  
-Isse blast radius kam hota hai aur isolation proper rehta hai.
-
-🔍 **Audit permissions regularly**
 ```bash
 rabbitmqctl list_permissions
 rabbitmqctl list_user_permissions app_user
+```
