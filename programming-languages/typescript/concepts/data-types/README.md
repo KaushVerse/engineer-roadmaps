@@ -206,10 +206,3 @@ let bigNumber: bigint = 12345678901234567890n;
 ### ✅ Tip
 
 > Ye saare basics strong ho gaye to **90% TypeScript errors khud solve ho jaate hain** 💪
-
-Agar chaho next:
-
-* 🧩 Advanced Types
-* 🧠 Interview Q&A
-* 🧪 Real‑world examples
-* 📘 One‑page cheatsheet
